@@ -1,8 +1,8 @@
 namespace GamesWinFormsUI
 {
-    public partial class FrmSwitchBoard : Form
+    public partial class frmSwitchBoard : Form
     {
-        public FrmSwitchBoard()
+        public frmSwitchBoard()
         {
             InitializeComponent();
         }

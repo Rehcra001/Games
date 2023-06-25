@@ -1,6 +1,6 @@
 ﻿namespace GamesWinFormsUI
 {
-    partial class FrmSwitchBoard
+    partial class frmSwitchBoard
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,13 +30,15 @@
         {
             SuspendLayout();
             // 
-            // FrmSwitchBoard
+            // frmSwitchBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(382, 348);
-            Name = "FrmSwitchBoard";
-            Text = "Form1";
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Name = "frmSwitchBoard";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Games Switch Board";
             ResumeLayout(false);
         }
 
