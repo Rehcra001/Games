@@ -1,6 +1,6 @@
 ﻿namespace GamesWinFormsUI
 {
-    partial class Form1
+    partial class FrmSwitchBoard
     {
         /// <summary>
         ///  Required designer variable.
