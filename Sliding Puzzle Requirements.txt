@@ -1,0 +1,20 @@
+Sliding Tiles Puzzle Game
+
+REQUIREMENTS
+A game where the initial image is broken up into n X n sub images and shuffled.
+The user can select the puzzle image to solve from a list of images.
+If a different image is required it will reset the game (new game).
+The user can choose the size n between 3*3 and 9*9 inclusive.
+Possibly allow the user to add and save new images
+
+CLASSES NEEDED
+Tile:
+Image TileImage
+int Value
+
+TileSet:
+Tile[] Tiles
+
+SlidingTiles:
+Contains the game logic
+

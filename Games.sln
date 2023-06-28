@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamesWinFormsUI", "GamesWinFormsUI\GamesWinFormsUI.csproj", "{F862A13E-0587-4E3B-BA80-C1B882550E3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GamesWinFormsUI", "GamesWinFormsUI\GamesWinFormsUI.csproj", "{F862A13E-0587-4E3B-BA80-C1B882550E3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlidingTilesPuzzle", "SlidingTilesPuzzle\SlidingTilesPuzzle.csproj", "{7A951839-86F8-47C0-9834-EF275E76415D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F862A13E-0587-4E3B-BA80-C1B882550E3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F862A13E-0587-4E3B-BA80-C1B882550E3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F862A13E-0587-4E3B-BA80-C1B882550E3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A951839-86F8-47C0-9834-EF275E76415D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A951839-86F8-47C0-9834-EF275E76415D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A951839-86F8-47C0-9834-EF275E76415D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A951839-86F8-47C0-9834-EF275E76415D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
