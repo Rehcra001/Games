@@ -32,7 +32,7 @@ namespace GamesWinFormsUI
             tilesImage = picChoice0.Image;
             gridSize = (int)nudGridSize.Value;
             gameTiles = new SlidingTiles(tilesImage, gridSize);
-            moveTile = new SoundPlayer(Application.StartupPath + "\\Sliding Puzzle Resources\\snap.wav");
+            moveTile = new SoundPlayer(GamesWinFormsUI.Properties.Resources.snap);
             AddGrid();
         }
 
