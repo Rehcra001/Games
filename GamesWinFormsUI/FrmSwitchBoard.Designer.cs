@@ -30,6 +30,7 @@
         {
             btnPlay = new Button();
             grpGames = new GroupBox();
+            rdoSnakesAndLadders = new RadioButton();
             rdoSlidingTiles = new RadioButton();
             label1 = new Label();
             btnExit = new Button();
@@ -48,6 +49,7 @@
             // 
             // grpGames
             // 
+            grpGames.Controls.Add(rdoSnakesAndLadders);
             grpGames.Controls.Add(rdoSlidingTiles);
             grpGames.Location = new Point(37, 109);
             grpGames.Name = "grpGames";
@@ -55,6 +57,16 @@
             grpGames.TabIndex = 1;
             grpGames.TabStop = false;
             grpGames.Text = "Games";
+            // 
+            // rdoSnakesAndLadders
+            // 
+            rdoSnakesAndLadders.AutoSize = true;
+            rdoSnakesAndLadders.Location = new Point(27, 60);
+            rdoSnakesAndLadders.Name = "rdoSnakesAndLadders";
+            rdoSnakesAndLadders.Size = new Size(128, 19);
+            rdoSnakesAndLadders.TabIndex = 0;
+            rdoSnakesAndLadders.Text = "Snakes and Ladders";
+            rdoSnakesAndLadders.UseVisualStyleBackColor = true;
             // 
             // rdoSlidingTiles
             // 
@@ -64,7 +76,6 @@
             rdoSlidingTiles.Name = "rdoSlidingTiles";
             rdoSlidingTiles.Size = new Size(87, 19);
             rdoSlidingTiles.TabIndex = 0;
-            rdoSlidingTiles.TabStop = true;
             rdoSlidingTiles.Text = "Sliding Tiles";
             rdoSlidingTiles.UseVisualStyleBackColor = true;
             // 
@@ -115,5 +126,6 @@
         private Label label1;
         private Button btnExit;
         private RadioButton rdoSlidingTiles;
+        private RadioButton rdoSnakesAndLadders;
     }
 }

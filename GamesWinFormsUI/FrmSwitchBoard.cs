@@ -8,6 +8,7 @@ namespace GamesWinFormsUI
         }
 
         frmSlidingTiles frmSlidingTiles;
+        frmSnakesAndLadders frmSnakesAndLadders;
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
@@ -27,6 +28,13 @@ namespace GamesWinFormsUI
                     this.Hide();
                     frmSlidingTiles.ShowDialog();
                     frmSlidingTiles.Close();
+                    this.Show();
+                    break;
+                case "Snakes and Ladders":
+                    frmSnakesAndLadders = new frmSnakesAndLadders();
+                    this.Hide();
+                    frmSnakesAndLadders.ShowDialog();
+                    frmSnakesAndLadders.Close();
                     this.Show();
                     break;
                 default: break;

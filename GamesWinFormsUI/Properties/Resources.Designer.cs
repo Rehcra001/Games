@@ -65,8 +65,17 @@ namespace GamesWinFormsUI.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Blue_Sea {
             get {
-                object obj = ResourceManager.GetObject("Blue Sea", resourceCulture);
+                object obj = ResourceManager.GetObject("Blue_Sea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream bounce {
+            get {
+                return ResourceManager.GetStream("bounce", resourceCulture);
             }
         }
         
@@ -81,12 +90,109 @@ namespace GamesWinFormsUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream climbing {
+            get {
+                return ResourceManager.GetStream("climbing", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ClipBoard {
+            get {
+                object obj = ResourceManager.GetObject("ClipBoard", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Dart_Board_300_x_300 {
             get {
-                object obj = ResourceManager.GetObject("Dart Board 300 x 300", resourceCulture);
+                object obj = ResourceManager.GetObject("Dart_Board_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE1 {
+            get {
+                object obj = ResourceManager.GetObject("DICE1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE2 {
+            get {
+                object obj = ResourceManager.GetObject("DICE2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE3 {
+            get {
+                object obj = ResourceManager.GetObject("DICE3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE4 {
+            get {
+                object obj = ResourceManager.GetObject("DICE4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE5 {
+            get {
+                object obj = ResourceManager.GetObject("DICE5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DICE6 {
+            get {
+                object obj = ResourceManager.GetObject("DICE6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream DieRoll {
+            get {
+                return ResourceManager.GetStream("DieRoll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream falling {
+            get {
+                return ResourceManager.GetStream("falling", resourceCulture);
             }
         }
         
@@ -95,18 +201,8 @@ namespace GamesWinFormsUI.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Field_with_tree_300_x_300 {
             get {
-                object obj = ResourceManager.GetObject("Field with tree 300 x 300", resourceCulture);
+                object obj = ResourceManager.GetObject("Field_with_tree_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon Game {
-            get {
-                object obj = ResourceManager.GetObject("Game", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -115,7 +211,17 @@ namespace GamesWinFormsUI.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Nuclear_300_x_300 {
             get {
-                object obj = ResourceManager.GetObject("Nuclear 300 x 300", resourceCulture);
+                object obj = ResourceManager.GetObject("Nuclear_300_x_300", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Snakes_And_Ladders_700_x_700 {
+            get {
+                object obj = ResourceManager.GetObject("Snakes_And_Ladders_700_x_700", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -134,7 +240,17 @@ namespace GamesWinFormsUI.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap Taj_Mahal_300_x_300 {
             get {
-                object obj = ResourceManager.GetObject("Taj Mahal 300 x 300", resourceCulture);
+                object obj = ResourceManager.GetObject("Taj_Mahal_300_x_300", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WoodPanel2 {
+            get {
+                object obj = ResourceManager.GetObject("WoodPanel2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

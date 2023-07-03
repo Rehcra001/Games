@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SlidingTilesPuzzle\SlidingTilesPuzzle.csproj" />
+    <ProjectReference Include="..\SnakesAndLadders\SnakesAndLadders.csproj" />
   </ItemGroup>
 
   <ItemGroup>
