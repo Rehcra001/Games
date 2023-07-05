@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Media;
 using SnakesAndLadders;
 
 namespace GamesWinFormsUI
@@ -28,15 +19,16 @@ namespace GamesWinFormsUI
         private int deltaX; //number of pixels to move along the X axis
         private int deltaY; //number of pixels to move along the Y axis
         private int destinationIndex; //board square destination when moving up ladders or down snakes
-        private Counter currentPlayer;
+        private Player currentPlayer;
         private bool gameStarted = false;
         private bool endOfBoardReached = false;
         private bool playSounds;
+        private bool defaultGame = true;
 
         SLBoard board;
         private void FrmSnakesAndLadders_Load(object sender, EventArgs e)
         {
-            SetupBoard();
+            StartDefaultGame();
 
             lblPlayer1.Visible = true;
             lblPlayerOneSquare.Visible = true;
@@ -233,10 +225,94 @@ namespace GamesWinFormsUI
             MessageBox.Show(helpMessage);
         }
 
-        private void SetupBoard()
+        private void StartDefaultGame()
         {
-            board = new SLBoard(pnlGamePanel, NumberOfPlayers());
-            board.CurrentPlayer = 1;
+            //Read in default snakes and ladder parameters
+            int rows;
+            int columns;
+            string[] parameters = Properties.Resources.SnakesAndLaddersDefaultGame.Split("\r\n");
+
+            //Example of input file for starting a game
+
+            //# Image file
+            //C:\\User\\....\\?.png or any other supported image file
+            //# Width and Height
+            //700,700
+            //#Number of rows and columns
+            //10,10
+            //#Ladders
+            //2,23
+            //6,45
+            //20,59
+            //52,72
+            //57,96
+            //71,92
+            //#Snakes
+            //43,17
+            //50,5
+            //56,8
+            //73,15
+            //84,58
+            //87,49
+            //98,40
+
+            //Read in width and height of panel
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (parameters[i] == "#Width and Height")
+                {
+                    i++;
+                    string[] widthHeight = parameters[i].Split(',');
+                    pnlGamePanel.Width = Convert.ToInt32(widthHeight[0]);
+                    pnlGamePanel.Height = Convert.ToInt32(widthHeight[1]);
+                    break;
+                }
+            }
+
+            //Read in the rows and columns
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (parameters[i] == "#Number of rows and columns")
+                {
+                    i++;
+                    string[] rowColumn = parameters[i].Split(',');
+                    rows = Convert.ToInt32(rowColumn[0]);
+                    columns = Convert.ToInt32(rowColumn[1]);
+
+                    //create the board
+                    board = new SLBoard(pnlGamePanel, rows, columns, NumberOfPlayers(), true);
+                    board.CurrentPlayer = 1;
+                    break;
+                }
+            }
+            
+            //Read in Ladders and Snakes
+            //loop through parameters until #Ladders is found
+            int index;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                
+                if (parameters[i] == "#Ladders")
+                {
+                    index = i + 1;
+                    //Read in Ladders
+                    while (parameters[index] != "#Snakes")
+                    {                        
+                        string[] ladders = parameters[index].Split(',');
+                        board.Ladders.Add(Convert.ToInt32(ladders[0]), Convert.ToInt32(ladders[1]));
+                        index++;
+                    }
+                    //Read in Snakes
+                    index++;
+                    while (index < parameters.Length)
+                    {                        
+                        string[] snakes = parameters[index].Split(',');
+                        board.Snakes.Add(Convert.ToInt32(snakes[0]), Convert.ToInt32(snakes[1]));
+                        index++;
+                    }
+                    break;
+                }
+            }
         }
 
         private void ClearAndAddNew()
@@ -244,7 +320,14 @@ namespace GamesWinFormsUI
             if (!gameStarted)
             {
                 board.ClearPlayers();
-                SetupBoard();
+                if (defaultGame)
+                {
+                    StartDefaultGame();
+                }
+                {
+                    //If a loaded game is being played
+                    //reload the same game
+                }                
 
                 switch (NumberOfPlayers())
                 {
@@ -333,147 +416,47 @@ namespace GamesWinFormsUI
 
         private void SnakeOrLadder()
         {
-            int currentTileIndex = board.CurrentPlayerPosition();
-
-            switch (currentTileIndex)
+            if (board.IsLadder(board.CurrentPlayerData()))
             {
-                case 2:
-                    CalcNumberOfMoves(board.Tiles[1], board.Tiles[22]);
-                    calcDeltaX(board.Tiles[1], board.Tiles[22]);
-                    calcDeltaY(board.Tiles[1], board.Tiles[22]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 22;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 6:
-                    CalcNumberOfMoves(board.Tiles[5], board.Tiles[44]);
-                    calcDeltaX(board.Tiles[5], board.Tiles[44]);
-                    calcDeltaY(board.Tiles[5], board.Tiles[44]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 44;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 20:
-                    CalcNumberOfMoves(board.Tiles[19], board.Tiles[58]);
-                    calcDeltaX(board.Tiles[19], board.Tiles[58]);
-                    calcDeltaY(board.Tiles[19], board.Tiles[58]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 58;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 52:
-                    CalcNumberOfMoves(board.Tiles[51], board.Tiles[71]);
-                    calcDeltaX(board.Tiles[51], board.Tiles[71]);
-                    calcDeltaY(board.Tiles[51], board.Tiles[71]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 71;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 57:
-                    CalcNumberOfMoves(board.Tiles[56], board.Tiles[95]);
-                    calcDeltaX(board.Tiles[56], board.Tiles[95]);
-                    calcDeltaY(board.Tiles[56], board.Tiles[95]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 95;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 71:
-                    CalcNumberOfMoves(board.Tiles[70], board.Tiles[91]);
-                    calcDeltaX(board.Tiles[70], board.Tiles[91]);
-                    calcDeltaY(board.Tiles[70], board.Tiles[91]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 91;
-                    PlayClimbingSound();
-                    timLadder.Enabled = true;
-                    break;
-                case 43:
-                    CalcNumberOfMoves(board.Tiles[42], board.Tiles[16]);
-                    calcDeltaX(board.Tiles[42], board.Tiles[16]);
-                    calcDeltaY(board.Tiles[42], board.Tiles[16]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 16;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 50:
-                    CalcNumberOfMoves(board.Tiles[49], board.Tiles[4]);
-                    calcDeltaX(board.Tiles[49], board.Tiles[4]);
-                    calcDeltaY(board.Tiles[49], board.Tiles[4]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 4;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 56:
-                    CalcNumberOfMoves(board.Tiles[55], board.Tiles[7]);
-                    calcDeltaX(board.Tiles[55], board.Tiles[7]);
-                    calcDeltaY(board.Tiles[55], board.Tiles[7]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 7;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 73:
-                    CalcNumberOfMoves(board.Tiles[72], board.Tiles[14]);
-                    calcDeltaX(board.Tiles[72], board.Tiles[14]);
-                    calcDeltaY(board.Tiles[72], board.Tiles[14]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 14;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 84:
-                    CalcNumberOfMoves(board.Tiles[83], board.Tiles[57]);
-                    calcDeltaX(board.Tiles[83], board.Tiles[57]);
-                    calcDeltaY(board.Tiles[83], board.Tiles[57]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 57;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 87:
-                    CalcNumberOfMoves(board.Tiles[86], board.Tiles[48]);
-                    calcDeltaX(board.Tiles[86], board.Tiles[48]);
-                    calcDeltaY(board.Tiles[86], board.Tiles[48]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 48;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                case 98:
-                    CalcNumberOfMoves(board.Tiles[97], board.Tiles[39]);
-                    calcDeltaX(board.Tiles[97], board.Tiles[39]);
-                    calcDeltaY(board.Tiles[97], board.Tiles[39]);
-                    currentPlayer = board.CurrentPlayerCounter();
-                    destinationIndex = 39;
-                    PlayFallingSound();
-                    timSnake.Enabled = true;
-                    break;
-                default:
-                    break;
+                int start = board.CurrentPlayerPosition();
+                int end = board.Ladders[start];
+                CalcNumberOfMoves(board.Tiles[start - 1], board.Tiles[end - 1]);
+                calcDeltaX(board.Tiles[start - 1], board.Tiles[end - 1]);
+                calcDeltaY(board.Tiles[start - 1], board.Tiles[end - 1]);
+                currentPlayer = board.CurrentPlayerData();
+                destinationIndex = end - 1;
+                PlayClimbingSound();
+                timLadder.Enabled = true;
+            }
+            else if (board.IsSnake(board.CurrentPlayerData()))
+            {
+                int start = board.CurrentPlayerPosition();
+                int end = board.Snakes[start];
+                CalcNumberOfMoves(board.Tiles[start - 1], board.Tiles[end - 1]);
+                calcDeltaX(board.Tiles[start - 1], board.Tiles[end - 1]);
+                calcDeltaY(board.Tiles[start - 1], board.Tiles[end - 1]);
+                currentPlayer = board.CurrentPlayerData();
+                destinationIndex = end - 1;
+                PlayFallingSound();
+                timSnake.Enabled = true;
             }
         }
 
         private void CalcNumberOfMoves(BoardTile tileStart, BoardTile tileEnd)
         {
             //move 5 pixels at a time in Y
-            int numPixels = 5;
+            int numPixels = 7;
             int y = tileStart.Y - tileEnd.Y;
             numMoves = (int)Math.Abs(y / numPixels);
         }
         private void calcDeltaX(BoardTile tileStart, BoardTile tileEnd)
         {
-            deltaX = (tileEnd.X - tileStart.X) / numMoves;
+            deltaX = (int)(((float)tileEnd.X - (float)tileStart.X) / (float)numMoves);
         }
 
         private void calcDeltaY(BoardTile tileStart, BoardTile tileEnd)
         {
-            deltaY = (tileEnd.Y - tileStart.Y) / numMoves;
+            deltaY = (int)(((float)tileEnd.Y - (float)tileStart.Y) / (float)numMoves);
         }
 
         private void NextPlayer()

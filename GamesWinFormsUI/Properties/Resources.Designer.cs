@@ -22,7 +22,7 @@ namespace GamesWinFormsUI.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace GamesWinFormsUI.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GamesWinFormsUI.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace GamesWinFormsUI.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Blue_Sea {
+        public static System.Drawing.Bitmap Blue_Sea {
             get {
                 object obj = ResourceManager.GetObject("Blue_Sea", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -73,7 +73,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream bounce {
+        public static System.IO.UnmanagedMemoryStream bounce {
             get {
                 return ResourceManager.GetStream("bounce", resourceCulture);
             }
@@ -82,7 +82,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ButterFly {
+        public static System.Drawing.Bitmap ButterFly {
             get {
                 object obj = ResourceManager.GetObject("ButterFly", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -92,7 +92,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream climbing {
+        public static System.IO.UnmanagedMemoryStream climbing {
             get {
                 return ResourceManager.GetStream("climbing", resourceCulture);
             }
@@ -101,7 +101,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ClipBoard {
+        public static System.Drawing.Bitmap ClipBoard {
             get {
                 object obj = ResourceManager.GetObject("ClipBoard", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -111,7 +111,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Dart_Board_300_x_300 {
+        public static System.Drawing.Bitmap Dart_Board_300_x_300 {
             get {
                 object obj = ResourceManager.GetObject("Dart_Board_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -121,7 +121,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE1 {
+        public static System.Drawing.Bitmap DICE1 {
             get {
                 object obj = ResourceManager.GetObject("DICE1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -131,7 +131,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE2 {
+        public static System.Drawing.Bitmap DICE2 {
             get {
                 object obj = ResourceManager.GetObject("DICE2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -141,7 +141,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE3 {
+        public static System.Drawing.Bitmap DICE3 {
             get {
                 object obj = ResourceManager.GetObject("DICE3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -151,7 +151,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE4 {
+        public static System.Drawing.Bitmap DICE4 {
             get {
                 object obj = ResourceManager.GetObject("DICE4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -161,7 +161,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE5 {
+        public static System.Drawing.Bitmap DICE5 {
             get {
                 object obj = ResourceManager.GetObject("DICE5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -171,7 +171,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DICE6 {
+        public static System.Drawing.Bitmap DICE6 {
             get {
                 object obj = ResourceManager.GetObject("DICE6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -181,7 +181,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream DieRoll {
+        public static System.IO.UnmanagedMemoryStream DieRoll {
             get {
                 return ResourceManager.GetStream("DieRoll", resourceCulture);
             }
@@ -190,7 +190,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream falling {
+        public static System.IO.UnmanagedMemoryStream falling {
             get {
                 return ResourceManager.GetStream("falling", resourceCulture);
             }
@@ -199,7 +199,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Field_with_tree_300_x_300 {
+        public static System.Drawing.Bitmap Field_with_tree_300_x_300 {
             get {
                 object obj = ResourceManager.GetObject("Field_with_tree_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -209,7 +209,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Nuclear_300_x_300 {
+        public static System.Drawing.Bitmap Nuclear_300_x_300 {
             get {
                 object obj = ResourceManager.GetObject("Nuclear_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -219,7 +219,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Snakes_And_Ladders_700_x_700 {
+        public static System.Drawing.Bitmap Snakes_And_Ladders_700_x_700 {
             get {
                 object obj = ResourceManager.GetObject("Snakes_And_Ladders_700_x_700", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -227,9 +227,36 @@ namespace GamesWinFormsUI.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #Image file
+        ///Properties.Resources.Snakes And Ladders 700 x 700
+        ///#Number of rows and columns
+        ///10,10
+        ///#Ladders
+        ///2,23
+        ///6,45
+        ///20,59
+        ///52,72
+        ///57,96
+        ///71,92
+        ///#Snakes
+        ///43,17
+        ///50,5
+        ///56,8
+        ///73,15
+        ///84,58
+        ///87,49
+        ///98,40.
+        /// </summary>
+        public static string SnakesAndLaddersDefaultGame {
+            get {
+                return ResourceManager.GetString("SnakesAndLaddersDefaultGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream snap {
+        public static System.IO.UnmanagedMemoryStream snap {
             get {
                 return ResourceManager.GetStream("snap", resourceCulture);
             }
@@ -238,7 +265,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Taj_Mahal_300_x_300 {
+        public static System.Drawing.Bitmap Taj_Mahal_300_x_300 {
             get {
                 object obj = ResourceManager.GetObject("Taj_Mahal_300_x_300", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -248,7 +275,7 @@ namespace GamesWinFormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WoodPanel2 {
+        public static System.Drawing.Bitmap WoodPanel2 {
             get {
                 object obj = ResourceManager.GetObject("WoodPanel2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
