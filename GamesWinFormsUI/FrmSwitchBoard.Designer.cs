@@ -34,16 +34,20 @@
             rdoSlidingTiles = new RadioButton();
             label1 = new Label();
             btnExit = new Button();
+            grpUtilities = new GroupBox();
+            rdoAddSnakeAndLadderBoardImage = new RadioButton();
+            BtnOpenUtility = new Button();
             grpGames.SuspendLayout();
+            grpUtilities.SuspendLayout();
             SuspendLayout();
             // 
             // btnPlay
             // 
-            btnPlay.Location = new Point(281, 147);
+            btnPlay.Location = new Point(100, 300);
             btnPlay.Name = "btnPlay";
             btnPlay.Size = new Size(75, 23);
             btnPlay.TabIndex = 0;
-            btnPlay.Text = "&Play";
+            btnPlay.Text = "&Play Game";
             btnPlay.UseVisualStyleBackColor = true;
             btnPlay.Click += BtnPlay_Click;
             // 
@@ -51,7 +55,7 @@
             // 
             grpGames.Controls.Add(rdoSnakesAndLadders);
             grpGames.Controls.Add(rdoSlidingTiles);
-            grpGames.Location = new Point(37, 109);
+            grpGames.Location = new Point(37, 95);
             grpGames.Name = "grpGames";
             grpGames.Size = new Size(200, 185);
             grpGames.TabIndex = 1;
@@ -76,6 +80,7 @@
             rdoSlidingTiles.Name = "rdoSlidingTiles";
             rdoSlidingTiles.Size = new Size(87, 19);
             rdoSlidingTiles.TabIndex = 0;
+            rdoSlidingTiles.TabStop = true;
             rdoSlidingTiles.Text = "Sliding Tiles";
             rdoSlidingTiles.UseVisualStyleBackColor = true;
             // 
@@ -84,7 +89,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(97, 35);
+            label1.Location = new Point(149, 29);
             label1.Name = "label1";
             label1.Size = new Size(240, 37);
             label1.TabIndex = 2;
@@ -92,7 +97,7 @@
             // 
             // btnExit
             // 
-            btnExit.Location = new Point(281, 234);
+            btnExit.Location = new Point(240, 337);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(75, 23);
             btnExit.TabIndex = 3;
@@ -100,21 +105,58 @@
             btnExit.UseVisualStyleBackColor = true;
             btnExit.Click += BtnExit_Click;
             // 
+            // grpUtilities
+            // 
+            grpUtilities.Controls.Add(rdoAddSnakeAndLadderBoardImage);
+            grpUtilities.Location = new Point(276, 95);
+            grpUtilities.Name = "grpUtilities";
+            grpUtilities.Size = new Size(241, 185);
+            grpUtilities.TabIndex = 1;
+            grpUtilities.TabStop = false;
+            grpUtilities.Text = "Utilities";
+            // 
+            // rdoAddSnakeAndLadderBoardImage
+            // 
+            rdoAddSnakeAndLadderBoardImage.AutoSize = true;
+            rdoAddSnakeAndLadderBoardImage.Checked = true;
+            rdoAddSnakeAndLadderBoardImage.Location = new Point(27, 35);
+            rdoAddSnakeAndLadderBoardImage.Name = "rdoAddSnakeAndLadderBoardImage";
+            rdoAddSnakeAndLadderBoardImage.Size = new Size(186, 19);
+            rdoAddSnakeAndLadderBoardImage.TabIndex = 0;
+            rdoAddSnakeAndLadderBoardImage.TabStop = true;
+            rdoAddSnakeAndLadderBoardImage.Text = "Add a Snake and Ladder Board";
+            rdoAddSnakeAndLadderBoardImage.UseVisualStyleBackColor = true;
+            // 
+            // BtnOpenUtility
+            // 
+            BtnOpenUtility.AutoSize = true;
+            BtnOpenUtility.Location = new Point(356, 300);
+            BtnOpenUtility.Name = "BtnOpenUtility";
+            BtnOpenUtility.Size = new Size(80, 25);
+            BtnOpenUtility.TabIndex = 4;
+            BtnOpenUtility.Text = "Open Utility";
+            BtnOpenUtility.UseVisualStyleBackColor = true;
+            BtnOpenUtility.Click += BtnOpenUtility_Click;
+            // 
             // frmSwitchBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(418, 372);
+            ClientSize = new Size(555, 372);
+            Controls.Add(BtnOpenUtility);
             Controls.Add(btnExit);
             Controls.Add(label1);
-            Controls.Add(grpGames);
             Controls.Add(btnPlay);
+            Controls.Add(grpUtilities);
+            Controls.Add(grpGames);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmSwitchBoard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Games Switch Board";
             grpGames.ResumeLayout(false);
             grpGames.PerformLayout();
+            grpUtilities.ResumeLayout(false);
+            grpUtilities.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -127,5 +169,8 @@
         private Button btnExit;
         private RadioButton rdoSlidingTiles;
         private RadioButton rdoSnakesAndLadders;
+        private GroupBox grpUtilities;
+        private RadioButton rdoAddSnakeAndLadderBoardImage;
+        private Button BtnOpenUtility;
     }
 }

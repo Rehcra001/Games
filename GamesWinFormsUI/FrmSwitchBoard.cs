@@ -9,6 +9,7 @@ namespace GamesWinFormsUI
 
         frmSlidingTiles frmSlidingTiles;
         frmSnakesAndLadders frmSnakesAndLadders;
+        FrmAddSnakesAndLaddersImage frmAddSnakesAndLaddersImage;
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
@@ -45,6 +46,30 @@ namespace GamesWinFormsUI
         private void BtnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnOpenUtility_Click(object sender, EventArgs e)
+        {
+            string utility = "";
+            foreach (RadioButton control in grpUtilities.Controls)
+            {
+                if (control.Checked)
+                {
+                    utility = control.Text;
+                }
+            }
+
+            switch (utility)
+            {
+                case "Add a Snake and Ladder Board":
+                    frmAddSnakesAndLaddersImage = new FrmAddSnakesAndLaddersImage();
+                    this.Hide();
+                    frmAddSnakesAndLaddersImage.ShowDialog();
+                    frmAddSnakesAndLaddersImage.Close();
+                    this.Show();
+                    break;
+                default: break;
+            }
         }
     }
 }

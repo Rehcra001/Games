@@ -155,7 +155,8 @@
             Players = new Player[NumberOfPlayers];
             BoardTile tile = Tiles[0];
             int playerHeight = tile.Height / 2 - 2;
-            int playerWidth = tile.Width / 2 - 2;
+            int playerWidth = playerHeight;
+            //int playerWidth = tile.Width / 2 - 2;
 
             for (int i = 0; i < NumberOfPlayers; i++)
             {
@@ -163,6 +164,7 @@
                 //player 2 and 4 go to the bottom row
                 int xOffset;
                 int yOffset;
+
                 switch (i)
                 {
                     case 0:

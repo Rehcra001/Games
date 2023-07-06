@@ -4,6 +4,8 @@ Properties.Resources.Snakes And Ladders 700 x 700
 700,700
 #Number of rows and columns
 10,10
+#First Tile on the Left
+True
 #Ladders
 2,23
 6,45

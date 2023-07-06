@@ -1,4 +1,7 @@
-﻿using System.Media;
+﻿using System.Diagnostics;
+using System.IO;
+using System.Media;
+using System.Windows.Forms.Design;
 using SnakesAndLadders;
 
 namespace GamesWinFormsUI
@@ -24,11 +27,13 @@ namespace GamesWinFormsUI
         private bool endOfBoardReached = false;
         private bool playSounds;
         private bool defaultGame = true;
+        private readonly string savedBoardPath = Application.StartupPath + "Snakes and Ladders Boards";
+        private string[] parameters;
 
         SLBoard board;
         private void FrmSnakesAndLadders_Load(object sender, EventArgs e)
         {
-            StartDefaultGame();
+            StartGame();
 
             lblPlayer1.Visible = true;
             lblPlayerOneSquare.Visible = true;
@@ -45,6 +50,7 @@ namespace GamesWinFormsUI
             btnRollDie.Enabled = false;
             btnReset.Enabled = false;
 
+            //Load sound files
             try
             {
                 moveSound = new SoundPlayer(Properties.Resources.bounce);
@@ -56,6 +62,18 @@ namespace GamesWinFormsUI
             catch (Exception)
             {
                 playSounds = false;
+            }
+
+            CreateDefaultBoard();
+
+            //Check if there are any saved boards for loading
+            if (IsSavedBoards())
+            {
+                BtnLoadBoard.Enabled = true;
+            }
+            else
+            {
+                BtnLoadBoard.Enabled = false;
             }
         }
 
@@ -191,6 +209,7 @@ namespace GamesWinFormsUI
             grpNumberOfPlayers.Enabled = false;
             btnRollDie.Enabled = true;
             btnReset.Enabled = true;
+            BtnLoadBoard.Enabled = false;
         }
 
         private void BtnReset_Click(object sender, EventArgs e)
@@ -199,6 +218,8 @@ namespace GamesWinFormsUI
             grpNumberOfPlayers.Enabled = true;
             btnRollDie.Enabled = false;
             btnReset.Enabled = false;
+            gameStarted = false;
+            BtnLoadBoard.Enabled = true;
             ClearAndAddNew();
             UpdatePlayerProgress();
         }
@@ -225,12 +246,25 @@ namespace GamesWinFormsUI
             MessageBox.Show(helpMessage);
         }
 
-        private void StartDefaultGame()
+        private void StartGame()
         {
             //Read in default snakes and ladder parameters
             int rows;
             int columns;
-            string[] parameters = Properties.Resources.SnakesAndLaddersDefaultGame.Split("\r\n");
+
+            if (defaultGame)
+            {
+                pnlGamePanel.BackgroundImage = Properties.Resources.Snakes_And_Ladders_700_x_700;
+                pnlGamePanel.BackgroundImageLayout = ImageLayout.Stretch;
+                parameters = Properties.Resources.SnakesAndLaddersDefaultGame.Split("\r\n");
+            }
+            else
+            {
+                board.ClearPlayers();
+                Image image = Image.FromFile(parameters[1]);
+                pnlGamePanel.BackgroundImage = image;
+            }
+
 
             //Example of input file for starting a game
 
@@ -240,6 +274,8 @@ namespace GamesWinFormsUI
             //700,700
             //#Number of rows and columns
             //10,10
+            //# First Tile on the Left
+            //False
             //#Ladders
             //2,23
             //6,45
@@ -269,6 +305,17 @@ namespace GamesWinFormsUI
                 }
             }
 
+            //Read in if the first tile is on the left or right side of the board
+            bool startsOnLeft = true;
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (parameters[i] == "#First Tile on the Left")
+                {
+                    i++;
+                    startsOnLeft = Convert.ToBoolean(parameters[i]);
+                }
+            }
+
             //Read in the rows and columns
             for (int i = 0; i < parameters.Length; i++)
             {
@@ -280,32 +327,32 @@ namespace GamesWinFormsUI
                     columns = Convert.ToInt32(rowColumn[1]);
 
                     //create the board
-                    board = new SLBoard(pnlGamePanel, rows, columns, NumberOfPlayers(), true);
+                    board = new SLBoard(pnlGamePanel, rows, columns, NumberOfPlayers(), startsOnLeft);
                     board.CurrentPlayer = 1;
                     break;
                 }
             }
-            
+
             //Read in Ladders and Snakes
             //loop through parameters until #Ladders is found
             int index;
             for (int i = 0; i < parameters.Length; i++)
             {
-                
+
                 if (parameters[i] == "#Ladders")
                 {
                     index = i + 1;
                     //Read in Ladders
                     while (parameters[index] != "#Snakes")
-                    {                        
+                    {
                         string[] ladders = parameters[index].Split(',');
                         board.Ladders.Add(Convert.ToInt32(ladders[0]), Convert.ToInt32(ladders[1]));
                         index++;
                     }
                     //Read in Snakes
                     index++;
-                    while (index < parameters.Length)
-                    {                        
+                    while (index < parameters.Length && parameters[index] != "")
+                    {
                         string[] snakes = parameters[index].Split(',');
                         board.Snakes.Add(Convert.ToInt32(snakes[0]), Convert.ToInt32(snakes[1]));
                         index++;
@@ -320,14 +367,8 @@ namespace GamesWinFormsUI
             if (!gameStarted)
             {
                 board.ClearPlayers();
-                if (defaultGame)
-                {
-                    StartDefaultGame();
-                }
-                {
-                    //If a loaded game is being played
-                    //reload the same game
-                }                
+                StartGame();
+                
 
                 switch (NumberOfPlayers())
                 {
@@ -451,12 +492,12 @@ namespace GamesWinFormsUI
         }
         private void calcDeltaX(BoardTile tileStart, BoardTile tileEnd)
         {
-            deltaX = (int)(((float)tileEnd.X - (float)tileStart.X) / (float)numMoves);
+            deltaX = (tileEnd.X - tileStart.X) / numMoves;
         }
 
         private void calcDeltaY(BoardTile tileStart, BoardTile tileEnd)
         {
-            deltaY = (int)(((float)tileEnd.Y - (float)tileStart.Y) / (float)numMoves);
+            deltaY = (tileEnd.Y - tileStart.Y) / numMoves;
         }
 
         private void NextPlayer()
@@ -519,6 +560,90 @@ namespace GamesWinFormsUI
             }
         }
 
+        private void BtnLoadBoard_Click(object sender, EventArgs e)
+        {
+            btnReset.PerformClick();
+            LoadSavedBoard();
+        }
+
+        private void LoadSavedBoard()
+        {
+            DlgOpenSavedBoards.InitialDirectory = savedBoardPath;
+
+            if (DlgOpenSavedBoards.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = DlgOpenSavedBoards.FileName;
+                try
+                {
+                    StreamReader inputFile = new StreamReader(filePath);
+                    string str = inputFile.ReadToEnd();
+                    parameters = str.Split("\r\n");
+                    defaultGame = false;
+                    inputFile.Close();
+                    StartGame();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                
+            }
+        }
+
+        private bool IsSavedBoards()
+        {
+            //Search the path for text files
+            try
+            {
+                //Boards are saved a text files
+                IEnumerable<string> txtFiles = Directory.EnumerateFiles(savedBoardPath, "*.txt");
+                List<string> files;
+                files = txtFiles.ToList<string>();
+                if (files.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        private void CreateDefaultBoard()
+        {
+            if (!Directory.Exists(savedBoardPath))
+            {
+                Directory.CreateDirectory(savedBoardPath);
+            }
+            string[] defaultBoard = Properties.Resources.SnakesAndLaddersDefaultGame.Split("\r\n");
+            
+            string fileName = "\\Default.txt";
+            defaultBoard[1] = savedBoardPath + "\\DefaultImage.png";
+            if (!File.Exists(savedBoardPath + fileName))
+            {
+                Properties.Resources.Snakes_And_Ladders_700_x_700.Save(savedBoardPath + "\\DefaultImage.png");
+                try
+                {
+                    StreamWriter outputFile = new StreamWriter(savedBoardPath + fileName);
+                    for (int i = 0; i < defaultBoard.Length; i++)
+                    {
+                        outputFile.WriteLine(defaultBoard[i]);
+                    }
+                    
+                    outputFile.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Problem saving the default board parameters file", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+        }
 
     }
 }

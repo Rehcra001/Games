@@ -48,9 +48,10 @@
             pnlGamePanel = new Panel();
             timLadder = new System.Windows.Forms.Timer(components);
             timSnake = new System.Windows.Forms.Timer(components);
-            panel1 = new Panel();
+            PnlGameInfo = new Panel();
             btnStart = new Button();
             btnReset = new Button();
+            BtnLoadBoard = new Button();
             btnHelp = new Button();
             btnExit = new Button();
             lblPlayer4 = new Label();
@@ -63,6 +64,7 @@
             lblNextPlayer = new Label();
             lblPlayer1 = new Label();
             lblGameName = new Label();
+            DlgOpenSavedBoards = new OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)picDie1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picDie2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picDie3).BeginInit();
@@ -71,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)picDie6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picDieRoll).BeginInit();
             grpNumberOfPlayers.SuspendLayout();
-            panel1.SuspendLayout();
+            PnlGameInfo.SuspendLayout();
             SuspendLayout();
             // 
             // picDie1
@@ -244,8 +246,8 @@
             // 
             // pnlGamePanel
             // 
-            pnlGamePanel.BackgroundImage = Properties.Resources.Snakes_And_Ladders_700_x_700;
-            pnlGamePanel.BackgroundImageLayout = ImageLayout.Stretch;
+            pnlGamePanel.BackColor = Color.Transparent;
+            pnlGamePanel.BackgroundImageLayout = ImageLayout.None;
             pnlGamePanel.BorderStyle = BorderStyle.FixedSingle;
             pnlGamePanel.Location = new Point(450, 30);
             pnlGamePanel.Name = "pnlGamePanel";
@@ -262,38 +264,39 @@
             timSnake.Interval = 30;
             timSnake.Tick += timSnake_Tick;
             // 
-            // panel1
+            // PnlGameInfo
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.BackgroundImage = Properties.Resources.ClipBoard;
-            panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            panel1.Controls.Add(btnStart);
-            panel1.Controls.Add(btnReset);
-            panel1.Controls.Add(btnHelp);
-            panel1.Controls.Add(btnExit);
-            panel1.Controls.Add(lblPlayer4);
-            panel1.Controls.Add(lblPlayer3);
-            panel1.Controls.Add(lblPlayer2);
-            panel1.Controls.Add(lblPlayerFourSquare);
-            panel1.Controls.Add(lblPlayerThreeSquare);
-            panel1.Controls.Add(lblPlayerTwoSquare);
-            panel1.Controls.Add(lblPlayerOneSquare);
-            panel1.Controls.Add(lblNextPlayer);
-            panel1.Controls.Add(lblPlayer1);
-            panel1.Controls.Add(lblGameName);
-            panel1.Controls.Add(grpNumberOfPlayers);
-            panel1.Controls.Add(picDieRoll);
-            panel1.Controls.Add(btnRollDie);
-            panel1.Location = new Point(12, 30);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(432, 700);
-            panel1.TabIndex = 16;
+            PnlGameInfo.BackColor = Color.Transparent;
+            PnlGameInfo.BackgroundImage = Properties.Resources.ClipBoard;
+            PnlGameInfo.BackgroundImageLayout = ImageLayout.Stretch;
+            PnlGameInfo.Controls.Add(btnStart);
+            PnlGameInfo.Controls.Add(btnReset);
+            PnlGameInfo.Controls.Add(BtnLoadBoard);
+            PnlGameInfo.Controls.Add(btnHelp);
+            PnlGameInfo.Controls.Add(btnExit);
+            PnlGameInfo.Controls.Add(lblPlayer4);
+            PnlGameInfo.Controls.Add(lblPlayer3);
+            PnlGameInfo.Controls.Add(lblPlayer2);
+            PnlGameInfo.Controls.Add(lblPlayerFourSquare);
+            PnlGameInfo.Controls.Add(lblPlayerThreeSquare);
+            PnlGameInfo.Controls.Add(lblPlayerTwoSquare);
+            PnlGameInfo.Controls.Add(lblPlayerOneSquare);
+            PnlGameInfo.Controls.Add(lblNextPlayer);
+            PnlGameInfo.Controls.Add(lblPlayer1);
+            PnlGameInfo.Controls.Add(lblGameName);
+            PnlGameInfo.Controls.Add(grpNumberOfPlayers);
+            PnlGameInfo.Controls.Add(picDieRoll);
+            PnlGameInfo.Controls.Add(btnRollDie);
+            PnlGameInfo.Location = new Point(12, 30);
+            PnlGameInfo.Name = "PnlGameInfo";
+            PnlGameInfo.Size = new Size(432, 700);
+            PnlGameInfo.TabIndex = 16;
             // 
             // btnStart
             // 
             btnStart.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnStart.ForeColor = Color.Black;
-            btnStart.Location = new Point(283, 203);
+            btnStart.Location = new Point(283, 185);
             btnStart.Name = "btnStart";
             btnStart.Size = new Size(75, 29);
             btnStart.TabIndex = 21;
@@ -305,7 +308,7 @@
             // 
             btnReset.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnReset.ForeColor = Color.Black;
-            btnReset.Location = new Point(283, 234);
+            btnReset.Location = new Point(283, 216);
             btnReset.Name = "btnReset";
             btnReset.Size = new Size(75, 29);
             btnReset.TabIndex = 21;
@@ -313,11 +316,23 @@
             btnReset.UseVisualStyleBackColor = true;
             btnReset.Click += BtnReset_Click;
             // 
+            // BtnLoadBoard
+            // 
+            BtnLoadBoard.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            BtnLoadBoard.ForeColor = Color.Black;
+            BtnLoadBoard.Location = new Point(283, 309);
+            BtnLoadBoard.Name = "BtnLoadBoard";
+            BtnLoadBoard.Size = new Size(75, 29);
+            BtnLoadBoard.TabIndex = 21;
+            BtnLoadBoard.Text = "&Load";
+            BtnLoadBoard.UseVisualStyleBackColor = true;
+            BtnLoadBoard.Click += BtnLoadBoard_Click;
+            // 
             // btnHelp
             // 
             btnHelp.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnHelp.ForeColor = Color.Black;
-            btnHelp.Location = new Point(283, 296);
+            btnHelp.Location = new Point(283, 278);
             btnHelp.Name = "btnHelp";
             btnHelp.Size = new Size(75, 29);
             btnHelp.TabIndex = 21;
@@ -329,7 +344,7 @@
             // 
             btnExit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnExit.ForeColor = Color.Black;
-            btnExit.Location = new Point(283, 265);
+            btnExit.Location = new Point(283, 247);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(75, 29);
             btnExit.TabIndex = 21;
@@ -443,6 +458,10 @@
             lblGameName.TabIndex = 16;
             lblGameName.Text = "Snakes and Ladders";
             // 
+            // DlgOpenSavedBoards
+            // 
+            DlgOpenSavedBoards.Filter = "Text File(*.txt)|*.txt";
+            // 
             // frmSnakesAndLadders
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -457,7 +476,7 @@
             Controls.Add(picDie3);
             Controls.Add(picDie2);
             Controls.Add(picDie1);
-            Controls.Add(panel1);
+            Controls.Add(PnlGameInfo);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmSnakesAndLadders";
@@ -473,8 +492,8 @@
             ((System.ComponentModel.ISupportInitialize)picDieRoll).EndInit();
             grpNumberOfPlayers.ResumeLayout(false);
             grpNumberOfPlayers.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            PnlGameInfo.ResumeLayout(false);
+            PnlGameInfo.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -498,7 +517,7 @@
         private Panel pnlGamePanel;
         private System.Windows.Forms.Timer timLadder;
         private System.Windows.Forms.Timer timSnake;
-        private Panel panel1;
+        private Panel PnlGameInfo;
         private Label lblGameName;
         private Label lblPlayer4;
         private Label lblPlayer3;
@@ -513,5 +532,7 @@
         private Button btnStart;
         private Button btnReset;
         private Button btnHelp;
+        private Button BtnLoadBoard;
+        private OpenFileDialog DlgOpenSavedBoards;
     }
 }
