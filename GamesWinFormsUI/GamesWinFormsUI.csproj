@@ -11,6 +11,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BlackJackLibrary\BlackJackLibrary.csproj" />
+    <ProjectReference Include="..\CardsLibrary\CardsLibrary.csproj" />
     <ProjectReference Include="..\CustomUserControls\CustomUserControls.csproj" />
     <ProjectReference Include="..\SlidingTilesPuzzle\SlidingTilesPuzzle.csproj" />
     <ProjectReference Include="..\SnakesAndLadders\SnakesAndLadders.csproj" />

@@ -30,6 +30,7 @@
         {
             btnPlay = new Button();
             grpGames = new GroupBox();
+            rdoTest = new RadioButton();
             rdoSnakesAndLadders = new RadioButton();
             rdoSlidingTiles = new RadioButton();
             label1 = new Label();
@@ -37,6 +38,7 @@
             grpUtilities = new GroupBox();
             rdoAddSnakeAndLadderBoardImage = new RadioButton();
             BtnOpenUtility = new Button();
+            rdoBlackJack = new RadioButton();
             grpGames.SuspendLayout();
             grpUtilities.SuspendLayout();
             SuspendLayout();
@@ -53,6 +55,8 @@
             // 
             // grpGames
             // 
+            grpGames.Controls.Add(rdoTest);
+            grpGames.Controls.Add(rdoBlackJack);
             grpGames.Controls.Add(rdoSnakesAndLadders);
             grpGames.Controls.Add(rdoSlidingTiles);
             grpGames.Location = new Point(37, 95);
@@ -61,6 +65,17 @@
             grpGames.TabIndex = 1;
             grpGames.TabStop = false;
             grpGames.Text = "Games";
+            // 
+            // rdoTest
+            // 
+            rdoTest.AutoSize = true;
+            rdoTest.Location = new Point(27, 122);
+            rdoTest.Name = "rdoTest";
+            rdoTest.Size = new Size(45, 19);
+            rdoTest.TabIndex = 1;
+            rdoTest.TabStop = true;
+            rdoTest.Text = "Test";
+            rdoTest.UseVisualStyleBackColor = true;
             // 
             // rdoSnakesAndLadders
             // 
@@ -138,6 +153,16 @@
             BtnOpenUtility.UseVisualStyleBackColor = true;
             BtnOpenUtility.Click += BtnOpenUtility_Click;
             // 
+            // rdoBlackJack
+            // 
+            rdoBlackJack.AutoSize = true;
+            rdoBlackJack.Location = new Point(27, 85);
+            rdoBlackJack.Name = "rdoBlackJack";
+            rdoBlackJack.Size = new Size(75, 19);
+            rdoBlackJack.TabIndex = 0;
+            rdoBlackJack.Text = "BlackJack";
+            rdoBlackJack.UseVisualStyleBackColor = true;
+            // 
             // frmSwitchBoard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -172,5 +197,7 @@
         private GroupBox grpUtilities;
         private RadioButton rdoAddSnakeAndLadderBoardImage;
         private Button BtnOpenUtility;
+        private RadioButton rdoTest;
+        private RadioButton rdoBlackJack;
     }
 }

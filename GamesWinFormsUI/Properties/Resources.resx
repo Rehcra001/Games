@@ -118,67 +118,97 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Blue_Sea" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blue Sea.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bounce" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bounce.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ButterFly" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ButterFly.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="climbing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ring08.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ClipBoard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ClipBoard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dart_Board_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dart Board 300 x 300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DICE6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DICE6.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DieRoll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TunePocket-Rolling-Dice-Preview.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="falling" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\falling.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Field_with_tree_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Field with tree 300 x 300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nuclear_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nuclear 300 x 300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SnakesAndLaddersDefaultGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SnakesAndLaddersDefaultGame.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="Dart_Board_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dart Board 300 x 300.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Snakes_And_Ladders_700_x_700" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Snakes And Ladders 700 x 700.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DICE6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE6.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DICE4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE4.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="snap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\snap.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="SnakesAndLaddersDefaultGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SnakesAndLaddersDefaultGame.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="DieRoll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TunePocket-Rolling-Dice-Preview.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="climbing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ring08.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Cards_BlackJack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cards BlackJack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DICE3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE3.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Casino_Chips" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Casino Chips.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="falling" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\falling.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ClipBoard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ClipBoard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Field_with_tree_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Field with tree 300 x 300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DICE2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE2.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Green_Felt_Material" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Green Felt Material.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Taj_Mahal_300_x_300" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Taj Mahal 300 x 300.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Blue_Sea" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue Sea.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="WoodPanel2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WoodPanel2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DICE5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Snakes_And_Ladders_700_x_700" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Snakes And Ladders 700 x 700.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DICE1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DICE1.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ButterFly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ButterFly.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Green material" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Green material.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cards" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cards.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cardBack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cardBack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BlackJack_Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackJack Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Dealing_cards" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dealing-cards.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PADDLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PADDLE.WAV;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Dealcard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dealcard.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

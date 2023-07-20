@@ -15,12 +15,15 @@ namespace BlackJackLibrary
         public DrawPile DrawPile { get; }
         public CardCollection DiscardPile { get; }
         public int CurrentPlayer { get; private set; }
-
         public Dealer Dealer { get; }
+        public string[,] PlayerWinLossState { get; private set; }
+        public string DealerWinLossState { get; private set; }
+
 
         private const int MAX_PLAYERS = 4;
         private const int BUY_IN_AMOUNT = 1000;
         private const int NUMBER_OF_DECKS_IN_DRAWPILE = 6; //Initial number of decks in the drawpile
+        private const int MAX_HANDS_PER_PLAYER = 2;
 
         private bool handDealt = false;
         private bool isDealersTurn = false;
@@ -32,6 +35,16 @@ namespace BlackJackLibrary
             this.DrawPile = new DrawPile("Draw Pile", NUMBER_OF_DECKS_IN_DRAWPILE);
             this.DiscardPile = new CardCollection("Discard Pile");
             this.Dealer = new Dealer("Dealer");
+            InitializePlayerWinLossState();
+        }
+
+        public BlackJack(Image cardImage)
+        {
+            this.Players = new Player[MAX_PLAYERS];
+            this.DrawPile = new DrawPile(cardImage, "Draw Pile", NUMBER_OF_DECKS_IN_DRAWPILE);
+            this.DiscardPile = new CardCollection("Discard Pile");
+            this.Dealer = new Dealer("Dealer");
+            InitializePlayerWinLossState();
         }
 
         public void AddPlayer(int playerPosition)
@@ -77,16 +90,25 @@ namespace BlackJackLibrary
                 {
                     case "BlackJack":
                         //Compare each players against the dealer
+                        DealerWinLossState = "BlackJack";
                         for (int i = 0; i < MAX_PLAYERS; i++)
                         {
                             if (Players[i] != null && Players[i].BetPot.Count > 0)
                             {
                                 for (int j = 0; j < Players[i].BetPot.Count; j++)
                                 {
-                                    if (Players[i].PlayerStatus.Equals("BlackJack"))
+                                    if (Players[i].PlayerStatus[j].Equals("BlackJack"))
                                     {
                                         //get your bet back
                                         Players[i].Pot.AddToPot(Players[i].BetPot[j].PotValue);
+                                        PlayerWinLossState[i, j] = "Push";
+                                    }
+                                    else
+                                    {
+                                        if (Players[i].BetPot[j].PotValue > 0)
+                                        {
+                                            PlayerWinLossState[i, j] = "Loses: " + Players[i].BetPot[j].PotValue.ToString();
+                                        }
                                     }
                                 }
                             }
@@ -98,6 +120,7 @@ namespace BlackJackLibrary
                         break;
                     case "Bust":
                         //Any player not bust wins
+                        DealerWinLossState = "Bust";
                         for (int i = 0; i < MAX_PLAYERS; i++)
                         {
                             if (Players[i] != null && Players[i].BetPot.Count > 0)
@@ -110,9 +133,17 @@ namespace BlackJackLibrary
                                         case "BlackJack":
                                             //pays approximately 3:2
                                             Players[i].Pot.AddToPot((int)Math.Ceiling((double)(Players[i].BetPot[j].PotValue * 2.5)));
+                                            PlayerWinLossState[i, j] = "Wins: " + ((int)Math.Ceiling((double)(Players[i].BetPot[j].PotValue * 1.5))).ToString();
                                             break;
                                         case "Stay":
                                             Players[i].Pot.AddToPot(Players[i].BetPot[j].PotValue * 2);
+                                            PlayerWinLossState[i, j] = "Wins: " + Players[i].BetPot[j].PotValue.ToString();
+                                            break;
+                                        default:
+                                            if (Players[i].BetPot[j].PotValue > 0)
+                                            {
+                                                PlayerWinLossState[i, j] = "Loses: " + Players[i].BetPot[j].PotValue.ToString();
+                                            }
                                             break;
                                     }
                                 }
@@ -124,6 +155,7 @@ namespace BlackJackLibrary
                         }
                         break;
                     case "Stay":
+                        DealerWinLossState = Dealer.Hand.HandValue.Max().ToString();
                         for (int i = 0; i < MAX_PLAYERS; i++)
                         {
                             if (Players[i] != null && Players[i].BetPot.Count > 0)
@@ -136,19 +168,36 @@ namespace BlackJackLibrary
                                         case "BlackJack":
                                             //pays approximately 3:2
                                             Players[i].Pot.AddToPot((int)Math.Ceiling((double)(Players[i].BetPot[j].PotValue * 2.5)));
+                                            PlayerWinLossState[i, j] = "Wins: " + ((int)Math.Ceiling((double)(Players[i].BetPot[j].PotValue * 1.5))).ToString();
                                             break;
                                         case "Stay":
                                             if (Players[i].Hand[j].HandValue.Max() > dealerHandValue)
                                             {
                                                 //Return double bet amount
                                                 Players[i].Pot.AddToPot(Players[i].BetPot[j].PotValue * 2);
+                                                PlayerWinLossState[i, j] = "Wins: " + Players[i].BetPot[j].PotValue.ToString();
                                             }
                                             else if (Players[i].Hand[j].HandValue.Max() == dealerHandValue)
                                             {
                                                 //Return bet amount only
                                                 Players[i].Pot.AddToPot(Players[i].BetPot[j].PotValue);
+                                                PlayerWinLossState[i, j] = "Push";
+                                            }
+                                            else
+                                            {
+                                                if (Players[i].BetPot[j].PotValue > 0)
+                                                {
+                                                    PlayerWinLossState[i, j] = "Loses: " + Players[i].BetPot[j].PotValue.ToString();
+                                                }
                                             }
                                             break;
+                                        case "Bust":
+                                            if (Players[i].BetPot[j].PotValue > 0)
+                                            {
+                                                PlayerWinLossState[i, j] = "Loses: " + Players[i].BetPot[j].PotValue.ToString();
+                                            }
+                                            break;
+
                                     }
                                 }
                             }
@@ -159,6 +208,29 @@ namespace BlackJackLibrary
                             
                         }
                         break;
+                }
+            }
+        }
+
+        public void InitializePlayerWinLossState()
+        {
+            PlayerWinLossState = new string[MAX_PLAYERS, MAX_HANDS_PER_PLAYER];
+            for (int i = 0; i < MAX_PLAYERS; i++)
+            {
+                for (int j = 0; j < MAX_HANDS_PER_PLAYER; j++)
+                {
+                    PlayerWinLossState[i, j] = "";
+                }
+            }
+        }
+
+        public void ClearPlayerWinLossState()
+        {
+            for (int i = 0; i < MAX_PLAYERS; i++)
+            {
+                for (int j = 0; j < MAX_HANDS_PER_PLAYER; j++)
+                {
+                    PlayerWinLossState[i, j] = "";
                 }
             }
         }
@@ -182,6 +254,23 @@ namespace BlackJackLibrary
             return false;
         }
 
+        private bool APlayerHasStay()
+        {
+            for (int i = 0; i < MAX_PLAYERS; i++)
+            {
+                if (Players[i] != null && Players[i].BetPot[0].PotValue > 0)
+                {
+                    foreach (string status in Players[i].PlayerStatus)
+                    {
+                        if (status == "Stay")
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
 
         public bool IsDealersTurn()
         {
@@ -195,9 +284,17 @@ namespace BlackJackLibrary
 
         public void DealersTurn()
         {
-            this.Dealer.Play(this.DrawPile);
-            roundComplete = true;
-            SettleBets();
+            if (APlayerHasStay())
+            {
+                this.Dealer.Play(this.DrawPile);
+                roundComplete = true;
+            }
+            else
+            {
+                this.Dealer.Stay();
+                this.Dealer.Play(this.DrawPile);
+                roundComplete = true;
+            }
         }
 
         public void Discard()
@@ -318,6 +415,11 @@ namespace BlackJackLibrary
                 }
             }
             return gameStatus;
+        }
+
+        public void CombineDiscardWithDrawPile()
+        {
+            DiscardPile.DealAll(DrawPile);
         }
     }
 }

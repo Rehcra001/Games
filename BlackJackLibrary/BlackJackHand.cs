@@ -206,5 +206,17 @@ namespace BlackJackLibrary
                 }
             }
         }
+
+        public override string ToString()
+        {
+            if (HandValue == null)
+            {
+                return "";
+            }
+            else
+            {
+                return String.Join(", ", HandValue);
+            }
+        }
     }
 }

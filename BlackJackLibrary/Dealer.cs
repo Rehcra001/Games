@@ -69,13 +69,26 @@ namespace BlackJackLibrary
             player.Hit(drawPile);
         }
 
-        public void Play(DrawPile drawPile)
+        public void Stay()
         {
             SetStatus();
-            while (Status.Equals("Play"))
+            if (Status != "BlackJack")
             {
-                drawPile.Deal(Hand);
+                Status = "Stay";
+            }
+            
+        }
+
+        public void Play(DrawPile drawPile)
+        {
+            if (!Status.Equals("Stay"))
+            {
                 SetStatus();
+                while (Status.Equals("Play"))
+                {
+                    drawPile.Deal(Hand);
+                    SetStatus();
+                }
             }
         }
 

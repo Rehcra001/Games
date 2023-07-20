@@ -10,9 +10,9 @@ namespace CardsLibrary
     {
         public enum Suits
         {
-            Hearts,
-            Diamonds,
             Clubs,
+            Diamonds,
+            Hearts,
             Spades
         }
 

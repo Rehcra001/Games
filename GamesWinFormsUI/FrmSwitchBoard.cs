@@ -10,6 +10,8 @@ namespace GamesWinFormsUI
         frmSlidingTiles frmSlidingTiles;
         frmSnakesAndLadders frmSnakesAndLadders;
         FrmAddSnakesAndLaddersImage frmAddSnakesAndLaddersImage;
+        FrmBlackJack frmBlackJack;
+
 
         private void BtnPlay_Click(object sender, EventArgs e)
         {
@@ -36,6 +38,13 @@ namespace GamesWinFormsUI
                     this.Hide();
                     frmSnakesAndLadders.ShowDialog();
                     frmSnakesAndLadders.Close();
+                    this.Show();
+                    break;
+                case "BlackJack":
+                    frmBlackJack = new FrmBlackJack();
+                    this.Hide();
+                    frmBlackJack.ShowDialog();
+                    frmBlackJack.Close();
                     this.Show();
                     break;
                 default: break;
